@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <link href="stylesheets/todolist.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div class="wrap">
+            <header>
+                To Do List
+            </header>
+            <section class="lists_wrap">  
+
+                    <ul class="list">
+                        <% for(var i=0; i<todolist.length; i++){ %>
+                            <li>
+                            <% if(todolist[i].status==='N'){ console.log(todolist.id) %>    
+                            <form class='lists-checkbox' action="/checkbox" method="POST">
+                                <input type="checkbox" class='list_checkbox' name="status" value="Y">
+                            </form>
+                            <span> <%=todolist[i].list%></span>
+                        <% } else if(todolist[i].status==='Y'){%>
+                            <form class='lists-checkbox' action="/checkbox" method="POST"> 
+                                <input type="checkbox" class='list_checkbox' name="status" value="N" checked>
+                            </form>
+                            <span class="checked-list-text"><%=todolist[i].list%></span>
+                        <% } %>
+                            <div class="btns">
+                                <form action="/update/<%=todolist[i].id%>" method="GET">
+                                    <button type="submit" class="btn">Edit</button>
+                                </form>
+                                <form action="/delete/<%=todolist[i].id%>" method="post">
+                                    <button type="submit" class="btn">Delete</button>
+                                </form>
+                            </div>
+                        </li>
+                        <% } %>
+                    </ul>
+            </section>
+            <div class="text_inputbox">
+                <form class="add" action="/create" method="POST">
+                <input class='input_text' name="list" type="text">
+                <div class='btns'>
+                    <!-- <input class="add-btn" type="submit" value="Add"> -->
+                    <button type="submit" class="add-btn">Add</button>
+                    <!-- <div class="add-btn" onclick="">Add</div> -->
+                    <div class="edit-btn">Edit</div>
+                </div>
+                </form>
+            </div>
+        </div>
+        
+    </body>
+    <!-- <script src="javascripts/todolist.js"></script> -->
+</html>
+
+
+<!-- 1. 백그라운드 브라운
+2. 표시영역 베이지
+3. flex-direction:row
+4. 추가 버튼 누르면 배열 생성 (날짜,컬러,텍스트)
+class name=번호 
+5. 체크박스가 같은 class로 생성됨 
+6. 배열에 가져와서 출력 innerhtml
+7. 체크박스 체크 후 삭제 버튼 클릭 시 
+체크 박스에 있는 classname을 받아온후 해당 클래스 모두 삭제 -->
