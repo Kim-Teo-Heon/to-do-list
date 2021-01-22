@@ -8,21 +8,21 @@
     <body>
         <div class="wrap">
             <header>
-                To Do List
+                <a href="/"> To Do List </a>
             </header>
-            <section class="lists_wrap">  
+            <section class="lists-wrap">  
 
                     <ul class="list">
                         <% for(var i=0; i<todolist.length; i++){ %>
                             <li>
-                            <% if(todolist[i].status==='N'){ console.log(todolist.id) %>    
-                            <form class='lists-checkbox' action="/checkbox" method="POST">
-                                <input type="checkbox" class='list_checkbox' name="status" value="Y">
+                            <% if(todolist[i].status==='N'){ %>    
+                            <form class='lists-checkbox' action="/update/status/<%=todolist[i].id%>" method="POST">
+                                <input type="checkbox" class='list-checkbox' name="status" value="Y">
                             </form>
                             <span> <%=todolist[i].list%></span>
                         <% } else if(todolist[i].status==='Y'){%>
-                            <form class='lists-checkbox' action="/checkbox" method="POST"> 
-                                <input type="checkbox" class='list_checkbox' name="status" value="N" checked>
+                            <form class='lists-checkbox' action="/update/status/<%=todolist[i].id%>" method="POST"> 
+                                <input type="checkbox" class='list-checkbox' name="status" value="N" checked>
                             </form>
                             <span class="checked-list-text"><%=todolist[i].list%></span>
                         <% } %>
@@ -38,9 +38,9 @@
                         <% } %>
                     </ul>
             </section>
-            <div class="text_inputbox">
+            <div class="text-inputbox">
                 <form class="add" action="/create" method="POST">
-                <input class='input_text' name="list" type="text">
+                <input name="list" type="text">
                 <div class='btns'>
                     <!-- <input class="add-btn" type="submit" value="Add"> -->
                     <button type="submit" class="add-btn">Add</button>

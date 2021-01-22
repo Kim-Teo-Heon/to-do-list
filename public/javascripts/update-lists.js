@@ -1,0 +1,1 @@
+const checkbox = document.querySelector('.list_checkbox')

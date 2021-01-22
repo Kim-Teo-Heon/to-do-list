@@ -19,14 +19,15 @@ body{
     flex-direction: column;
 }
 
-header{
+header > a{
     font-size: 8em;
     color: white;
+    text-decoration: none;
 }
 
 
 /* section */
-.lists_wrap{
+.lists-wrap{
     width: 493px;
     height: 350px;
     background: white;
@@ -84,7 +85,7 @@ li{
     font-weight: bold;
 }
 /* footer */
-.text_inputbox{
+.text-inputbox{
     margin-top: 10px;
     width: 493px;
     display: flex;
