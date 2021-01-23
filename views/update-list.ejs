@@ -17,9 +17,9 @@
                             <li>
                             <% if(todolist[i].status==='N'){ %>    
                             <form class='lists-checkbox' action="/update/status/<%=todolist[i].id%>" method="POST">
-                                <input type="checkbox" class='list-checkbox' name="status" value="Y">
+                            <input type="checkbox" class='list-checkbox' name="status" value="Y">
                             </form>
-                            <span> <%=todolist[i].list%></span>
+                            <span><%=todolist[i].list%></span>
                         <% } else if(todolist[i].status==='Y'){%>
                             <form class='lists-checkbox' action="/update/status/<%=todolist[i].id%>" method="POST"> 
                                 <input type="checkbox" class='list-checkbox' name="status" value="N" checked>

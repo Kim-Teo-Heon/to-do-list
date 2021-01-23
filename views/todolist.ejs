@@ -13,16 +13,16 @@
             <section class="lists-wrap">  
 
                     <ul class="list">
-                        <% for(var i=0; i<todolist.length; i++){ %>
+                        <% for(var i=0; i<todolist.length; i++){ console.log(todolist[i].status) %>
                             <li>
                             <% if(todolist[i].status==='N'){ %>    
-                            <form class='lists-checkbox' action="/update/status/<%=todolist[i].id%>" method="POST">
-                                <input type="checkbox" class='list-checkbox' name="status" value="Y">
+                            <form name="form" class='lists-checkbox' action="/update/status/<%=todolist[i].id%>" method="POST">
+                                <input type="checkbox" class='list-checkbox' name="status" onclick="submit(this)" value="Y">
                             </form>
-                            <span> <%=todolist[i].list%></span>
+                            <span><%=todolist[i].list%></span>
                         <% } else if(todolist[i].status==='Y'){%>
                             <form class='lists-checkbox' action="/update/status/<%=todolist[i].id%>" method="POST"> 
-                                <input type="checkbox" class='list-checkbox' name="status" value="N" checked>
+                                <input type="checkbox" class='list-checkbox' name="status" value="N" onclick="" checked>
                             </form>
                             <span class="checked-list-text"><%=todolist[i].list%></span>
                         <% } %>
@@ -50,9 +50,8 @@
                 </form>
             </div>
         </div>
-        
     </body>
-    <!-- <script src="javascripts/todolist.js"></script> -->
+    <script src="javascripts/todolist.js"></script>
 </html>
 
 
