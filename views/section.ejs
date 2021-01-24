@@ -1,0 +1,27 @@
+<ul class="list">
+    <% for(var i=0; i<todolist.length; i++){ console.log(todolist[i].status) %>
+        <li>
+        <% if(todolist[i].status==='N'){ %>    
+        <form name="form" class='lists-checkbox' action="/status/Y/<%=todolist[i].id%>" method="POST">
+            <input type="hidden" name="status" value="Y">
+            <input type="checkbox" class='list-checkbox' onclick="submit(this)">
+        </form>
+        <span><%=todolist[i].list%></span>
+    <% } else if(todolist[i].status==='Y'){%>
+        <form name="form" class='lists-checkbox' action="/status/N/<%=todolist[i].id%>" method="POST">
+            <input type="hidden" name="status" value="N">
+            <input type="checkbox" class='list-checkbox' onclick="submit(this)" checked>
+        </form>
+        <span class="checked-list-text"><%=todolist[i].list%></span>
+    <% } %>
+        <div class="btns">
+            <form action="/update/<%=todolist[i].id%>" method="GET">
+                <button type="submit" class="btn">Edit</button>
+            </form>
+            <form action="/delete/<%=todolist[i].id%>" method="post">
+                <button type="submit" class="btn">Delete</button>
+            </form>
+        </div>
+    </li>
+    <% } %>
+</ul>
