@@ -7,6 +7,7 @@ const index_router = require('./routes/index');
 const update_router = require('./routes/update');
 const create_router = require('./routes/create');
 const delete_router = require('./routes/delete');
+const status_router = require('./routes/status');
 
 app.set("view engine","ejs");
 app.use(express.static(path.join(__dirname,'public')));//다른 경로에서 실행했을 경우를 위해 __dirname 사용
@@ -17,5 +18,6 @@ app.use('/', index_router);
 app.use('/update', update_router);
 app.use('/create', create_router);
 app.use('/delete', delete_router);
+app.use('/status', status_router);
 
 module.exports = app;

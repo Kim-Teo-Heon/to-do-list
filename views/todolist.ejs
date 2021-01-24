@@ -16,13 +16,15 @@
                         <% for(var i=0; i<todolist.length; i++){ console.log(todolist[i].status) %>
                             <li>
                             <% if(todolist[i].status==='N'){ %>    
-                            <form name="form" class='lists-checkbox' action="/update/status/<%=todolist[i].id%>" method="POST">
-                                <input type="checkbox" class='list-checkbox' name="status" onclick="submit(this)" value="Y">
+                            <form name="form" class='lists-checkbox' action="/status/Y/<%=todolist[i].id%>" method="POST">
+                                <input type="hidden" name="status" value="Y">
+                                <input type="checkbox" class='list-checkbox' onclick="submit(this)">
                             </form>
                             <span><%=todolist[i].list%></span>
                         <% } else if(todolist[i].status==='Y'){%>
-                            <form class='lists-checkbox' action="/update/status/<%=todolist[i].id%>" method="POST"> 
-                                <input type="checkbox" class='list-checkbox' name="status" value="N" onclick="" checked>
+                            <form name="form" class='lists-checkbox' action="/status/N/<%=todolist[i].id%>" method="POST">
+                                <input type="hidden" name="status" value="N">
+                                <input type="checkbox" class='list-checkbox' onclick="submit(this)" checked>
                             </form>
                             <span class="checked-list-text"><%=todolist[i].list%></span>
                         <% } %>
