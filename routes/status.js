@@ -10,7 +10,6 @@ router.post('/Y/:page_id',(req, res)=>{
 
 router.post('/N/:page_id',(req, res)=>{
     status.update_status(req,res);
-    console.log(req.body)
     res.redirect('/');
 })
 
