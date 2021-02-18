@@ -1,5 +1,5 @@
 function submit(box){
-    let form=box.parentNode
+    let form=box.parentNode;
 
     form.submit();
 }
